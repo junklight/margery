@@ -11,7 +11,7 @@ Actions = {
   name="",
   fn = function() print("do something") end
   }
-  
+
 function Actions:add_action( itm )
   if not itm then 
     error("actions should exist")
@@ -32,6 +32,5 @@ function Actions:get_action_list()
   return actionlist
 end
   
-
 
 return Actions

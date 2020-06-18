@@ -1,6 +1,9 @@
 -- margery: memory surface 
 -- 
 
+package.loaded["margery/lib/actions"] = nil
+local actions = require 'margery/lib/actions'
+
 package.loaded["margery/lib/factoryactions"] = nil
 local factoryactions = require 'margery/lib/factoryactions'
 
@@ -9,9 +12,6 @@ local menu = require 'margery/lib/menu'
 
 package.loaded["margery/lib/celleditor"] = nil
 local celleditor = require 'margery/lib/celleditor'
-
-package.loaded["margery/lib/action"] = nil
-local actions = require 'margery/lib/actions'
 
 package.loaded["margery/lib/memory"] = nil
 local memory = require 'margery/lib/memory'
@@ -116,6 +116,7 @@ function key(n,z)
       -- do someething for read mode 
     else 
       ce:do_action()
+      redraw()
     end
   end
   redraw()
