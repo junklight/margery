@@ -38,7 +38,9 @@ function Menu:set_items(itms)
   self.topline = 1
 end
 
-function Menu:draw_screen(screen)
+function Menu:draw_screen(header,screen)
+  screen.move(10,10)
+  screen.text(header)
   for i=1,6 do
       local n = self.topline + (i - 1)
       if n > (#self.items + 1) then 
@@ -50,14 +52,11 @@ function Menu:draw_screen(screen)
       else
         screen.level(4)
       end
-      -- screen.move(10,10*i)
-      -- local num = n .. "."
-      -- screen.text_right(num)
-      screen.move(10,10*i)
+      screen.move(10,10*(i + 1))
       if n <= #self.items then
         screen.text(self.items[n])
       else
-        screen.text("+")
+        screen.text("add action...")
       end
     end
 end
